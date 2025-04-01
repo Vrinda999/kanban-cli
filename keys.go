@@ -55,13 +55,13 @@ var keys = keyMap{
 	),
 
 	Up: key.NewBinding(
-		key.WithKeys("up", "w"),
-		key.WithHelp("↑/w", "Move Up"),
+		key.WithKeys("up"),
+		key.WithHelp("↑", "Move Up"),
 	),
 
 	Down: key.NewBinding(
-		key.WithKeys("down", "s"),
-		key.WithHelp("↓/s", "Move Down"),
+		key.WithKeys("down"),
+		key.WithHelp("↓", "Move Down"),
 	),
 
 	Left: key.NewBinding(
