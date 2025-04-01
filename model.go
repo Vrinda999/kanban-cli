@@ -42,7 +42,15 @@ func (m *Board) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 		return m, tea.Batch(cmds...)
 
 	case Form:
-		return m, m.cols[m.focused].Set(msg.index, msg.CreateTask())
+		// Type assertion to convert tea.Msg to Task
+		task, ok := msg.CreateTask().(Task)
+		if !ok {
+			// Handle the case where the assertion fails
+			return nil, nil // or some appropriate error handling
+		}
+
+		// Use the task in the Set method
+		return m, m.cols[m.focused].Set(msg.index, task)
 
 	case moveMsg:
 		return m, m.cols[m.focused.getNext()].Set(APPEND, msg.Task)
@@ -92,10 +100,5 @@ func (m *Board) View() string {
 		m.cols[inProgress].View(),
 		m.cols[done].View(),
 	)
-
-	return lipgloss.JoinVertical(
-		lipgloss.Left,
-		board,
-		m.help.View(keys),
-	)
+	return lipgloss.JoinVertical(lipgloss.Left, board, m.help.View(keys))
 }
