@@ -14,13 +14,13 @@ func (b *Board) initLists() {
 	b.cols[todo].list.SetItems([]list.Item{
 		Task{
 			status:      todo,
-			title:       "Buy Milk",
-			description: "Strawberry Milk",
+			title:       "Study for Exam",
+			description: "Final Exams!!",
 		},
 		Task{
 			status:      todo,
-			title:       "Eat Sushi",
-			description: "Miso Soup, and Rice",
+			title:       "Eat Dinner",
+			description: "Pizza Today!",
 		},
 		Task{
 			status:      todo,
@@ -34,8 +34,8 @@ func (b *Board) initLists() {
 	b.cols[inProgress].list.SetItems([]list.Item{
 		Task{
 			status:      inProgress,
-			title:       "Go Proj",
-			description: "CLI Kanban",
+			title:       "Final Year Project",
+			description: "Disk Forensics Tool",
 		},
 	})
 
@@ -44,8 +44,8 @@ func (b *Board) initLists() {
 	b.cols[done].list.SetItems([]list.Item{
 		Task{
 			status:      done,
-			title:       "Portfolio",
-			description: "React, JS, Tailwind",
+			title:       "Portfolio Website",
+			description: "Made in React, JS, Tailwind",
 		},
 	})
 }
